@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  baslik: MyString
+  ekleyen: MyString
+  ozet: MyText
+  icerik: MyText
+  begeni: 1
+
+two:
+  baslik: MyString
+  ekleyen: MyString
+  ozet: MyText
+  icerik: MyText
+  begeni: 1

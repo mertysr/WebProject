@@ -1,0 +1,45 @@
+<%= form_with(model: face, local: true) do |form| %>
+  <% if face.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(face.errors.count, "error") %> prohibited this face from being saved:</h2>
+
+      <ul>
+      <% face.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :baslik %>
+    <%= form.text_field :baslik %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ekleyen %>
+    <%= form.text_field :ekleyen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ozet %>
+    <%= form.text_area :ozet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icerik %>
+    <%= form.text_area :icerik %>
+  </div>
+
+  <div class="field">
+    <%= form.label :begeni %>
+    <%= form.number_field :begeni %>
+  </div>
+<div class="field">
+<%= form.label :resim %>
+<%= form.file_field :resim %>
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

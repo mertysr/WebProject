@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Baslik:</strong>
+  <%= @face.baslik %>
+</p>
+
+<p>
+  <strong>Ekleyen:</strong>
+  <%= @face.ekleyen %>
+</p>
+
+<p>
+  <strong>Ozet:</strong>
+  <%= @face.ozet %>
+</p>
+
+<p>
+  <strong>Icerik:</strong>
+  <%= @face.icerik %>
+</p>
+
+<p>
+  <strong>Begeni:</strong>
+  <%= @face.begeni %>
+</p>
+
+<%= link_to 'Edit', edit_face_path(@face) %> |
+<%= link_to 'Back', faces_path %>
