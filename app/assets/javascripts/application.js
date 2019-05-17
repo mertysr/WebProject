@@ -16,33 +16,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-$(document).ready(function () {
- 
-    $(".gosterButonu, .gosterButonu img").click(function (event) {
-        var butonAdi = $(this).closest('div').attr('id'); // tıklanan linkin idsini aldık
-        var butonNo = butonAdi.slice(4); // idnin içinden 5. karakterden sonrasını aldık
-        var kutuAdi = "#kutu" + butonNo; // kutu adını elde ettik
- 
-        $(kutuAdi).fadeIn(300);
-    });
- 
- 
-    $(".kapatButonu").click(function () {
- 
-        $(".kutu").fadeOut(200); // kapatButonuna tıklanınca açılmış durumdaki kutu kapansın.
- 
-    });
- 
-    $(".kutu").click(function () {
- 
-        $(".kutu").fadeOut(200); // kutuya tıklanırsa da açılan kutu kapansın.
- 
-    });
- 
-    $(".icKutu").click(function () {
-        event.preventDefault();
-        event.stopPropagation();
- 
-    });
- 
-});
+
