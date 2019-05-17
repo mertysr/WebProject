@@ -1,12 +1,18 @@
 class FacesController < ApplicationController
   before_action :set_face, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :kontrol, only: [:edit, :update, :destroy]
+  
   # GET /faces
   # GET /faces.json
   def index
     @faces = Face.all
   end
-
+  def kontrol
+    if @kitap.user!=current_user
+    redirect_to root_url, notice: 'Yetkiniz yok'
+    end
+  end
   # GET /faces/1
   # GET /faces/1.json
   def show
@@ -25,7 +31,7 @@ class FacesController < ApplicationController
   # POST /faces.json
   def create
     @face = Face.new(face_params)
-
+    @face.user=current_user
     respond_to do |format|
       if @face.save
         format.html { redirect_to @face, notice: 'Face was successfully created.' }
