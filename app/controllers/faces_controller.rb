@@ -8,8 +8,22 @@ class FacesController < ApplicationController
   def index
     @faces = Face.all
   end
+   module ContentHelper
+  def resource_name
+    :user
+  end
+ 
+  def resource
+    @resource ||= User.new
+  end
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+end
+
   def kontrol
-    if @kitap.user!=current_user
+    if @face.user!=current_user
     redirect_to root_url, notice: 'Yetkiniz yok'
     end
   end

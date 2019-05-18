@@ -2,8 +2,9 @@
 <center <div class="container">
   <div class=row>
     <div class="col-md-4 col-xl-4 col-sm-4">
+        
       <div class="container">
-          <% @faces.each do |face| %>
+         
         <div class="row login_box">
           <div class="col-md-12 col-xs-12">
             <div class="line">
@@ -15,8 +16,8 @@
 
             </div>
             <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle" /></div>
-            <h1>Hi <%=face.user.email%></h1>
-            
+            <h1>Hi</h1>
+            <h6><% if user_signed_in? %> <strong><%= current_user.email %></strong><% else %>  <% end %></h6>
           </div>
           <div class="col-md-12 col-xs-12 follow line" align="center">
             <h3>
@@ -25,26 +26,31 @@
           </div>
 
           <div class="col-md-12 col-xs-12 login_control">
-
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
             <div class="control">
-              <div class="label">Email Address</div>
+              <div class="label"></div><%= f.text_field :email %>
               <input type="text" class="form-control" value="admin@gmail.com" />
             </div>
 
             <div class="control">
-              <div class="label">Password</div>
+              <div class="label"></div><%= f.password_field :password %>
               <input type="password" class="form-control" value="123456" />
             </div>
             <div align="center">
-              <button class="btn btn-orange">LOGIN</button>
+              <button class="btn btn-orange"><%= f.submit 'Sign in' %></button>
             </div>
-
+            <div align="center">
+                
+              <button class="btn btn-orange"><%= link_to "Şifremi Unuttum", new_password_path(:user) %></button>
+              
+            </div>
+            <% end %>
           </div>
 
 
 
         </div>
-        <% end %>
+        
       </div>
 
 
@@ -183,3 +189,12 @@
   <p class="navbar-text pull-right"> <% if user_signed_in? %> Logged in as <strong><%= current_user.email %></strong>. <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> <% else %> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %> <% end %> </p>
+    
+    <%= form_for(:user, :url => session_path(:user)) do |f| %>
+  
+  
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  
+  
+<% end %>
