@@ -117,6 +117,11 @@
               <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete, class: 'btn btn-orange', :style => 'color:#262E39' %>
 
             </div>
+            <div align="center" , id="uyeol", onclick="location.href='/arayuz/new'>
+
+              <button>
+
+            </div>
             <%unless current_user.blank? -%>
             <script>
               document.getElementById("giris").style.display = "none";
@@ -261,9 +266,10 @@
     </div>
     <div class="col-md-4 col-xl-4 col-sm-4">
       <div class="add">
-        <%= link_to new_face_path do %>
-        <%= image_tag "https://www.shareicon.net/data/128x128/2015/08/22/89095_add_512x512.png", class: "" %>
-        <% end %>
+          
+        <span style="cursor:pointer;" onclick="location.href='/arayuz/new'">
+            <img src="https://www.shareicon.net/data/128x128/2015/08/22/89095_add_512x512.png"/>
+        </span>
       </div>
 
 

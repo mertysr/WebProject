@@ -1,6 +1,6 @@
 class FacesController < ApplicationController
   before_action :set_face, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [ :edit, :destroy]
   before_action :kontrol, only: [:edit, :update, :destroy]
   
   # GET /faces
