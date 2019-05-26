@@ -23,8 +23,10 @@ class FacesController < ApplicationController
 end
 
   def kontrol
+      
     if @face.user!=current_user
-    redirect_to root_url, notice: 'Yetkiniz yok'
+        
+        redirect_to root_url, notice:'Yetkiniz yok.'
     end
   end
   # GET /faces/1
@@ -48,7 +50,7 @@ end
     @face.user=current_user
     respond_to do |format|
       if @face.save
-        format.html { redirect_to @face, notice: 'Face was successfully created.' }
+        format.html { redirect_to @face, notice: 'Kart başarıyla eklendi.' }
         format.json { render :show, status: :created, location: @face }
       else
         format.html { render :new }
@@ -62,7 +64,7 @@ end
   def update
     respond_to do |format|
       if @face.update(face_params)
-        format.html { redirect_to @face, notice: 'Face was successfully updated.' }
+        format.html { redirect_to @face, notice: 'Kart başarıyla güncellendi.' }
         format.json { render :show, status: :ok, location: @face }
       else
         format.html { render :edit }
@@ -76,7 +78,7 @@ end
   def destroy
     @face.destroy
     respond_to do |format|
-      format.html { redirect_to faces_url, notice: 'Face was successfully destroyed.' }
+      format.html { redirect_to faces_url, notice: 'Kart başarıyla silindi.' }
       format.json { head :no_content }
     end
   end

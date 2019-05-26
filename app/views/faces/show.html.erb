@@ -1,29 +1,24 @@
+<center>
+<div class="container" style="background-color:white">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Baslik:</strong>
+<p><h1 style="font-style: italic;text-align:center">
   <%= @face.baslik %>
 </p>
+<%= image_tag @face.resim.url(:large), :style => "width:900px" %>
 
-<p>
-  <strong>Ekleyen:</strong>
-  <%= @face.ekleyen %>
-</p>
-
-<p>
-  <strong>Ozet:</strong>
-  <%= @face.ozet %>
-</p>
-
-<p>
-  <strong>Icerik:</strong>
+<p style="text-align:justify">
+    <br>
   <%= @face.icerik %>
 </p>
 
-<p>
-  <strong>Begeni:</strong>
-  <%= @face.begeni %>
+<p style="text-align:left">
+  <strong>Ekleyen:</strong>
+  <%= @face.user.email %>
 </p>
-
-<%= link_to 'Edit', edit_face_path(@face) %> |
-<%= link_to 'Back', faces_path %>
+<small>
+<%= link_to 'Anasayfa', faces_path %> |
+<%= link_to 'Düzenle', edit_face_path(@face) %> |
+<%= link_to 'Sil', @face, method: :delete, class:"" , data: { confirm: 'Emin?'}%>
+</small></center>
+</div>
