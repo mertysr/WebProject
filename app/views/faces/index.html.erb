@@ -105,32 +105,40 @@
 
             </div>
             <div align="center" id="giris">
-              <%= f.submit 'Giriş Yap', class: 'btn btn-orange' , :style => 'color:#262E39'%>
+              <%= f.submit 'Giris Yap', class: 'btn btn-orange' , :style => 'color:#262E39'%>
             </div>
             <div align="center" , id='sifre'>
 
-              <%= link_to "Şifremi Unuttum", new_password_path(:user) , class: 'btn btn-orange', :style => 'color:#262E39'%>
+              <%= link_to "Sifremi Unuttum", new_password_path(:user) , class: 'btn btn-orange', :style => 'color:#262E39'%>
 
+            </div>
+            <div align="center" id="duzenle">
+              <span class="btn btn-orange" style="cursor:pointer" onclick="location.href='/users/edit'">
+              Kayıt Düzenle
+              </span>
             </div>
             <div align="center" , id="cikis">
 
-              <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete, class: 'btn btn-orange', :style => 'color:#262E39' %>
+              <%= link_to "Cıkıs Yap", destroy_user_session_path, method: :delete, class: 'btn btn-orange', :style => 'color:#262E39' %>
 
             </div>
-            <div align="center" , id="uyeol", onclick="location.href='/arayuz/new'>
-
-              <button>
-
+            <div align="center" id="yeniuye">
+              <span class="btn btn-orange" style="cursor:pointer" onclick="location.href='/users/sign_up'">
+              Üye Ol
+              </span>
             </div>
+            
             <%unless current_user.blank? -%>
             <script>
               document.getElementById("giris").style.display = "none";
               document.getElementById("sifre").style.display = "none";
               document.getElementById("mail").style.display = "none";
               document.getElementById("sifree").style.display = "none";
+              document.getElementById("yeniuye").style.display = "none";
             </script>
             <%else -%>
             <script>
+              document.getElementById("duzenle").style.display="none";
               document.getElementById("cikis").style.display = "none";
             </script>
             <%end-%>
@@ -153,12 +161,14 @@
     <div class="col-md-4 col-xl-4 col-sm-4">
       <center>
         <table>
+            
           <% @faces.each do |face| %>
-
+            
           <tr>
             <td>
               </br>
               <div class="card">
+                  
                 <%= link_to face do %>
                 <div class="additional">
                   <div class="user-card">
@@ -251,13 +261,13 @@
 
                 <div class="general">
                   <h1><%= face.baslik %></h1>
-                  <%= image_tag face.resim.url(:medium) if face.resim? %>
-
+                  <%= image_tag face.resim.url(:medium), :style => "width:250px" %>
                   <span class="more">Detaylı bilgi için imleci üzerine sürükleyin.</span>
                 </div>
               </div>
             </td>
           </tr>
+          
           <% end %>
           <% end %>
 
