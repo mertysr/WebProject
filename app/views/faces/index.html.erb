@@ -86,12 +86,16 @@
                       </g>
                     </svg> </div>
             <h1>Merhaba</h1>
-            <h6><% if user_signed_in? %> <strong><%= current_user.email %></strong><% else %> <% end %></h6>
+            <h6><% if user_signed_in? %> <strong><%= current_user.email %></strong><% else %> Kayıtsız Kullanıcı<% end %></h6>
           </div>
           
           <div class="col-md-12 col-xs-12 follow line" align="center">
             <h3>
-              <%= @son.baslik %> <br /> <span>Son Olusturulan Baslik</span>
+                <% if @son.present? %>
+                   <%= @son.baslik %>  <br /> <span>Son Olusturulan Baslik</span>
+                <% else %>
+                    Yok <br /> <span>Son Olusturulan Baslik</span>
+                <% end %>
             </h3>
           </div>
         

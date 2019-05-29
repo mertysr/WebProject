@@ -6,7 +6,7 @@ class FacesController < ApplicationController
   # GET /faces
   # GET /faces.json
   def index
-    @son  = Face.last
+    @son=Face.where(user: current_user).last
     @faces = Face.all
   end
    module ContentHelper
