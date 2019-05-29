@@ -6,6 +6,7 @@ class FacesController < ApplicationController
   # GET /faces
   # GET /faces.json
   def index
+    @son  = Face.last
     @faces = Face.all
   end
    module ContentHelper

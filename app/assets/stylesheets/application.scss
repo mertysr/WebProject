@@ -360,3 +360,82 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
 box-shadow: 2px 0px 24px 0px rgba(0,0,0,0.75);
 border-radius: 100px;
 }
+
+ .p {
+  background: red;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+.btn3{
+  background:#ff3333;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.btn3:hover{
+  background:#fff;
+  color:#ff3333;
+}
+.btn3:before,.btn3:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  
+}
+.btn3:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn3:hover:before,.bt3n:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+.btn2{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.btn2:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.btn2:before,.btn2:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  
+}
+.btn2:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn2:hover:before,.btn2:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

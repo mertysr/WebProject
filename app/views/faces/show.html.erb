@@ -1,4 +1,11 @@
-<center>
+<div class="row" style="position:fixed;margin-left:780px;padding-bottom: 500px;">
+<%= link_to 'Anasayfa', faces_path  , :class=>'btn2 p',:style=>'text-decoration:none'%> 
+<%= link_to 'Düzenle', edit_face_path(@face),:class=>'btn2 p',:style=>'text-decoration:none;margin-left:1px' %> 
+<%= link_to 'Sil', @face, method: :delete, class:"btn3 p" ,:style=>'text-decoration:none;margin-left:1px', data: { confirm: 'Emin misin?'}%>
+</div>
+
+</br></br></br>
+
 <div class="container" style="background-color:white">
 <p id="notice"><%= notice %></p>
 
@@ -7,18 +14,19 @@
 </p>
 <%= image_tag @face.resim.url(:large), :style => "width:900px" %>
 
-<p style="text-align:justify">
-    <br>
-  <%= @face.icerik %>
-</p>
+
+
+<%= @face.icerik.html_safe %>
+
 
 <p style="text-align:left">
   <strong>Ekleyen:</strong>
   <%= @face.user.email %>
 </p>
-<small>
-<%= link_to 'Anasayfa', faces_path %> |
-<%= link_to 'Düzenle', edit_face_path(@face) %> |
-<%= link_to 'Sil', @face, method: :delete, class:"" , data: { confirm: 'Emin?'}%>
-</small></center>
+
+<p style="font-size:25px">
+
+
+</p>
+</center>
 </div>

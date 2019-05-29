@@ -5,12 +5,15 @@
               location.href="/"
             </script>
             <%else %>
-            <h1>New Face</h1>
+            <center><h1>Yeni Kart</h1></center>
 
             <%= render 'form', face: @face %>
-
-            <%= link_to 'Back', faces_path %>
-
+<center>
+<span style="cursor:pointer;vertical-align: bottom;" onclick="location.href='/'" class="btn3 p">
+    
+    Geri
+</span>
+</center>
             
-            <% end %>
+ <% end %>
 
